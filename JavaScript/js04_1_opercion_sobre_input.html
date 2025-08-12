@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones sobre Input</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h3{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button{
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f3a3db;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #f3a3db;
+            
+        }
+    </style>
+
+<h3>Introducir un valor en el cuadro</h3>
+
+<input type="number" id="inputValue" placeholder="Ingrese un número">
+
+<button onclick="mostrarValor()">Muestre el valor</button>
+
+<button onclick="sumarUno()">Suma 1</button>
+
+<button onclick="multiplicarPorDos()">Multiplica *2</button>
+
+<button onclick="restarCinco()">Resta 5 </button>
+
+<p id="resultado"></p>
+
+<script>
+function mostrarValor() {
+    var valor = document.getElementById("inputValue").value;
+    document.getElementById("resultado").innerText = "Valor ingresado: " + valor;
+}
+
+function sumarUno() {
+    var valor = parseInt(document.getElementById("inputValue").value);
+    var resultado = valor + 1;
+    document.getElementById("inputValue").value = resultado;
+    document.getElementById("resultado").innerText = "Resultado de Sumar 1: " + resultado;
+}
+
+function multiplicarPorDos() {
+    var valor = parseInt(document.getElementById("inputValue").value);
+    var resultado = valor * 2;
+    document.getElementById("inputValue").value = resultado;
+    document.getElementById("resultado").innerText = "Resultado de Multiplicar por 2: " + resultado;
+}
+
+function restarCinco() {
+    var valor = parseInt(document.getElementById("inputValue").value);
+    var resultado = valor - 5;
+    document.getElementById("inputValue").value = resultado;
+    document.getElementById("resultado").innerText = "Resultado de Restar 5: " + resultado;
+}
+</script>
+
+</body>
+</html>

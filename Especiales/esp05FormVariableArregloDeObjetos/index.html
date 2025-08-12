@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Form Variable Arreglo Objetos</title>
+</head>
+<script src="../recursos/jquery.js"></script>
+<script src="./script.js"></script>
+<body>
+    <header>
+        <h1>Formulario de ALTA - Libro nuevo</h1>
+    </header>
+
+    <form action="respuesta.html" method="get" id="formularioLibro">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required><br>
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required><br>
+
+        <label for="genero">Género:</label>
+        <select name="genero" id="genero">
+            <option value="Ficción">Ficción</option>
+            <option value="No Ficción">No Ficción</option>
+            <option value="Ciencia Ficción">Ciencia Ficción</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Misterio">Misterio</option>
+        </select><br>
+
+        <label for="numero_paginas">Número de Páginas:</label>
+        <input type="number" id="numero_paginas" name="numero_paginas" required><br>
+
+        <label for="fecha_publicacion">Fecha de Publicación:</label>
+        <input type="date" id="fecha_publicacion" name="fecha_publicacion" required><br>
+
+        <label for="edicion_especial">¿Edición Especial?</label>
+        <input type="checkbox" id="edicion_especial" name="edicion_especial"><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
