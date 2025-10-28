@@ -1,0 +1,16 @@
+const tiposComprobanteData = {
+  "tiposComprobante": [
+    {
+      "codigoTipo": "01",
+      "descripcionTipo": "Diferencia de Cambio"
+    },
+    {
+      "codigoTipo": "02",
+      "descripcionTipo": "Bonificación de producto"
+    },
+    {
+      "codigoTipo": "03",
+      "descripcionTipo": "Devolución de producto"
+    }
+  ]
+};

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones entre Inputs</title>
+   <link rel="stylesheet" href="styles/js04_2.css">
+</head>
+<body>
+
+<h1>Operaciones entre Inputs</h1>
+<p>Introduce un valor en los cuadros de texto y luego pulsa el botón para ejecutar la función correspondiente.</p>
+
+<table>
+    <tr>
+        <td>Entrada 1:</td>
+        <td><input type="number" id="input1" value="0"></td>
+    </tr>
+    <tr>
+        <td>Entrada 2:</td>
+        <td><input type="number" id="input2" value="0"></td>
+    </tr>
+    <tr>
+        <td>Entrada 3:</td>
+        <td><input type="number" id="input3" value="0"></td>
+    </tr>
+</table>
+
+<button onclick="sumar()">Suma</button>
+<button onclick="restar()">Resta</button>
+<button onclick="multiplicar()">Multiplicación</button>
+
+<div id="resultado">Resultado: </div>
+
+<script>
+    function obtenerValores() {
+        const val1 = parseFloat(document.getElementById('input1').value);
+        const val2 = parseFloat(document.getElementById('input2').value);
+        const val3 = parseFloat(document.getElementById('input3').value);
+        return [val1, val2, val3];
+    }
+
+    function sumar() {
+        const [val1, val2, val3] = obtenerValores();
+        const resultado = val1 + val2 + val3;
+        document.getElementById('resultado').innerHTML = "Suma: " + resultado;
+    }
+
+    function restar() {
+        const [val1, val2, val3] = obtenerValores();
+        const resultado = val1 - val2 - val3;
+        document.getElementById('resultado').innerHTML = "Resta: " + resultado;
+    }
+
+    function multiplicar() {
+        const [val1, val2, val3] = obtenerValores();
+        const resultado = val1 * val2 * val3;
+        document.getElementById('resultado').innerHTML = "Multiplicación: " + resultado;
+    }
+</script>
+
+</body>
+</html>

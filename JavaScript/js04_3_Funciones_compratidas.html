@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Compartidas</title>
+    <link rel="stylesheet" href="styles/js04_3.css">
+
+</head>
+<body>
+
+<h1>Funciones Compartidas</h1>
+
+<table>
+    <tr>
+        <td><input type="button" value="1" onclick="SeleccionarNumero(1)"></td>
+        <td><input type="button" value="2" onclick="SeleccionarNumero(2)"></td>
+        <td><input type="button" value="3" onclick="SeleccionarNumero(3)"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="SeleccionarNumero(4)"></td>
+        <td><input type="button" value="5" onclick="SeleccionarNumero(5)"></td>
+        <td><input type="button" value="6" onclick="SeleccionarNumero(6)"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="SeleccionarNumero(7)"></td>
+        <td><input type="button" value="8" onclick="SeleccionarNumero(8)"></td>
+        <td><input type="button" value="9" onclick="SeleccionarNumero(9)"></td>
+    </tr>
+</table>
+
+<button onclick="sumar()">Sumar</button>
+<button onclick="mostrarAcumulador()">Muestra Acumulador</button>
+<button onclick="borrarAcumulador()">Borra Acumulador</button>
+<button onclick="borrarDisplay()">Borra Display</button>
+
+<div id="acumulador">Resultado: 0</div>
+
+<script>
+    let acumulador = 0;
+    let numeroSeleccionado = 0;
+    let sumaPendiente = 0;
+
+    function SeleccionarNumero(valor) {
+        numeroSeleccionado = valor;
+    }
+
+    function sumar() {
+        sumaPendiente += numeroSeleccionado;
+        numeroSeleccionado = 0; 
+    }
+
+    function mostrarAcumulador() {
+        acumulador += sumaPendiente;
+        sumaPendiente = 0;
+        document.getElementById('acumulador').innerHTML = "Resultado: " + acumulador;
+    }
+
+    function borrarAcumulador() {
+        acumulador = 0;
+        mostrarAcumulador();
+    }
+
+    function borrarDisplay() {
+        document.getElementById('acumulador').innerHTML = "Resultado: ";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JavaScript</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-header {
+    background-color: #e01212;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e01212;
+    padding: 10px 20px;
+    min-height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.toggle-button {
+    display: none;
+    font-size: 20px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #ffffff;
+    color: #e01212;
+    border-radius: 5px;
+}
+
+.volver {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #0b62ef;
+    text-decoration: none;
+    padding: 20px 20px;
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+    
+    .toggle-button {
+        display: block;
+        order: 2;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.content-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.content-list li {
+    margin: 10px 0;
+}
+
+.content-list a {
+    display: block;
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.content-list a:hover {
+    background-color: #f0f0f0;
+    border-color: #e20d0d;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .content-list a {
+        font-size: 1em;
+        padding: 8px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="navbar-header"></header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="images/image.png" alt="Logo" class="image.png">
+            </a>
+        </nav>
+    </header>
+    <main>
+        <h1>Índice ejercicicios JavaScript</h1>
+        <ul class="content-list">
+            <li><a href="js01_alert.html">Ejercicio de alerta</a></li>
+            <li><a href="js02_cuentas.html">Cuenta</a></li>
+            <li><a href="js03_variables_simples.html">Variables simples</a></li>
+            <li><a href="js04_1_opercion_sobre_input.html">Operacion sobre input</a></li>
+            <li><a href="js04_2_operacion_entre_Input.html">Operacion entre input</a></li>
+            <li><a href="js04_3_Funciones_compratidas.html">Funciones compartidas</a></li>
+            <li><a href="js05_6_variable_objeto_dato.html">Variable objeto dato</a></li>
+            <li><a href="js-arreglo.html">Arreglo</a></li>
+            <li><a href="js07_Form_abm.html">Formulario ABM</a></li>
+            <li><a href="js08_Validacion_con_keyup.html">Validacion con KeyUp</a></li>
+            <li><a href="js10-funcion_con_fecha.html">Funcion con fecha</a></li>
+            <li><a href="js12-estilo_din.html">Estilo Din</a></li>
+        </ul>
+        <a class="volver" href="../index.html">Volver</a>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.querySelector('.toggle-button');
+            const navLinks = document.querySelector('.nav-links');
+            toggleButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</body>
+</html>

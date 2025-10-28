@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario ABM</title>
+    <link rel="stylesheet" href="styles/js07.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>FORMULARIO ABM</h1>
+    <form id="form-abm">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required>
+
+        <label for="saldo">Saldo:</label>
+        <input type="text" id="saldo" name="saldo" required>
+
+        <button id="btn-blanquear" type="button">Blanquear</button>
+        <button id="btn-alta" type="submit">Alta</button>
+        <button id="btn-mod" type="submit">Modi</button>
+        <button id="btn-baja" type="submit">Baja</button>
+    </form>
+</div>
+
+<script>
+    const btnBlanquear = document.getElementById('btn-blanquear');
+    const btnAlta = document.getElementById('btn-alta');
+    const btnMod = document.getElementById('btn-modi');
+    const btnBaja = document.getElementById('btn-baja');
+
+    const apellido = document.getElementById('apellido');
+    const saldo = document.getElementById('saldo');
+
+    function toggleButtons() {
+        if (apellido.value.trim() !== '') {
+            btnBlanquear.classList.add('active'); 
+        } else {
+            btnBlanquear.classList.remove('active');
+        }
+
+        if (saldo.value.trim() !== '') {
+            btnAlta.classList.add('active');
+            btnMod.classList.add('active');
+            btnBaja.classList.add('active');
+        } else {
+            btnAlta.classList.remove('active');
+            btnMod.classList.remove('active');
+            btnBaja.classList.remove('active');
+        }
+    }
+
+    apellido.addEventListener('input', toggleButtons);
+    saldo.addEventListener('input', toggleButtons);
+</script>
+
+</body>
+</html>

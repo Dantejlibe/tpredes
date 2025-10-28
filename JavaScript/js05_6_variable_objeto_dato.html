@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Data</title>
+    <link rel="stylesheet" href="styles/js05_6.css">
+
+</head>
+<body>
+    <h1></h1>
+    <div>
+        <h2>Adicionar persona</h2>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name"><br>
+        <label for="surname">Apellido:</label>
+        <input type="text" id="surname"><br>
+        <label for="birthdate">Fecha de Nacimiento:</label>
+        <input type="date" id="birthdate"><br>
+        <button onclick="addPerson()">Crea persona</button>
+    </div>
+
+    <div>
+        <h2>Control</h2>
+        <button onclick="showList()">Lista personas</button>
+        <button onclick="hidePresentation()">Oculta presentación</button>
+    </div>
+
+    <div id="presentation">
+        <h2>Presentación</h2>
+        <div id="personList"></div>
+        <p>Longitud del arreglo de objetos: <span id="arrayLength"></span></p>
+    </div>
+
+    <script>
+        const people = [];
+        let isListVisible = false;
+
+        function addPerson() {
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const birthdate = document.getElementById('birthdate').value;
+
+            const person = {
+                name: name,
+                surname: surname,
+                birthdate: birthdate
+            };
+
+            people.push(person);
+            document.getElementById('name').value = '';
+            document.getElementById('surname').value = '';
+            document.getElementById('birthdate').value = '';
+
+            // Solo actualizar la lista si ya está visible
+            if (isListVisible) {
+                updateList();
+            }
+        }
+
+        function showList() {
+            updateList();
+            document.getElementById('presentation').style.display = 'block';
+            isListVisible = true; // Marcar la lista como visible
+        }
+
+        function hidePresentation() {
+            document.getElementById('presentation').style.display = 'none';
+            isListVisible = false; // Marcar la lista como no visible
+        }
+
+        function updateList() {
+            const personList = document.getElementById('personList');
+            personList.innerHTML = '';
+
+            people.forEach(person => {
+                personList.innerHTML += `<p>${person.name} ${person.surname} ${person.birthdate}</p>`;
+            });
+
+            document.getElementById('arrayLength').innerText = people.length;
+        }
+    </script>
+</body>
+</html>
+

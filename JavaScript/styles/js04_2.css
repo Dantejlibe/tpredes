@@ -1,0 +1,29 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding: 20px;
+}
+h1 {
+    color: #333;
+}
+table {
+    margin: 20px 0;
+    background-color: #b0e0e6;
+    padding: 10px;
+    border-radius: 5px;
+}
+td {
+    padding: 10px;
+}
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+#resultado {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d0f0c0;
+    border-radius: 5px;
+}

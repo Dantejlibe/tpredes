@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Respuesta - Nota de Crédito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: linear-gradient(135deg, #fff, #f8f9ff);
+            color: #16213e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #e94560;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .data-display {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .data-label {
+            font-weight: bold;
+            color: #16213e;
+        }
+        
+        .data-value {
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        .back-button {
+            background: #e94560;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background: #f5536f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nota de Crédito Procesada</h1>
+        
+        <div class="success-message">
+            <strong>¡Éxito!</strong> La nota de crédito ha sido procesada correctamente.
+        </div>
+        
+        <div class="data-display">
+            <h3>Datos de la Nota de Crédito:</h3>
+            <div class="data-item">
+                <span class="data-label">Nro. Comprobante:</span>
+                <span class="data-value" id="nroComprobante">-</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Nro. Factura Imputada:</span>
+                <span class="data-value" id="nroDeFacturaImputada">-</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Tipo Comprobante:</span>
+                <span class="data-value" id="codTipoComprobante">-</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Código Cliente:</span>
+                <span class="data-value" id="codCliente">-</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Observaciones:</span>
+                <span class="data-value" id="observaciones">-</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Fecha Comprobante:</span>
+                <span class="data-value" id="fechaComprobante">-</span>
+            </div>
+            <div class="data-item">
+                <span class="data-label">Total Neto:</span>
+                <span class="data-value" id="totalNetoComprobante">-</span>
+            </div>
+        </div>
+        
+        <a href="index.html" class="back-button">Volver al Formulario</a>
+        
+        <div class="footer">
+            <p>Alumno: Dante Jeroham Libarona</p>
+            <p>Sistema de Notas de Crédito de Ventas</p>
+        </div>
+    </div>
+
+    <script>
+        // Obtener parámetros de la URL
+        function obtenerParametrosURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                nroComprobante: urlParams.get('nroComprobante') || '-',
+                nroDeFacturaImputada: urlParams.get('nroDeFacturaImputada') || '-',
+                codTipoComprobante: urlParams.get('codTipoComprobante') || '-',
+                codCliente: urlParams.get('codCliente') || '-',
+                observaciones: urlParams.get('observaciones') || '-',
+                fechaComprobante: urlParams.get('fechaComprobante') || '-',
+                totalNetoComprobante: urlParams.get('totalNetoComprobante') || '-'
+            };
+        }
+
+        // Mostrar los datos en la página
+        function mostrarDatos() {
+            const datos = obtenerParametrosURL();
+            
+            document.getElementById('nroComprobante').textContent = datos.nroComprobante;
+            document.getElementById('nroDeFacturaImputada').textContent = datos.nroDeFacturaImputada;
+            document.getElementById('codTipoComprobante').textContent = datos.codTipoComprobante;
+            document.getElementById('codCliente').textContent = datos.codCliente;
+            document.getElementById('observaciones').textContent = datos.observaciones;
+            document.getElementById('fechaComprobante').textContent = datos.fechaComprobante;
+            
+            // Formatear el total como moneda
+            const total = parseFloat(datos.totalNetoComprobante);
+            if (!isNaN(total)) {
+                document.getElementById('totalNetoComprobante').textContent = '$' + total.toFixed(2);
+            } else {
+                document.getElementById('totalNetoComprobante').textContent = datos.totalNetoComprobante;
+            }
+        }
+
+        // Ejecutar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', mostrarDatos);
+    </script>
+</body>
+</html>
